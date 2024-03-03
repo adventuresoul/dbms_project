@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-Admin-add_product</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+   <div class="row justify-content-center">
+      <div class="col-md-6">
+         <div class="jumbotron">
+            <h1 class="text-center">Product Registration</h1>
+            <form method="POST">
+               {{ form.hidden_tag() }}
+               <div class="form-group">
+                  <label for="name">{{ form.name.label }}</label>
+                  {{ form.name(class="form-control") }}
+               </div>
+               <div class="form-group">
+                  <label for="price">{{ form.price.label }}</label>
+                  {{ form.price(class="form-control") }}
+               </div>
+               <div class="form-group">
+                  <label for="availability">{{ form.availibility.label }}</label>
+                  {{ form.availibility(class="form-control") }}
+               </div>
+               <div class="form-group">
+                  <label for="description">{{ form.description.label }}</label>
+                  {{ form.description(class="form-control") }}
+               </div>
+               <div class="form-group">
+                  <label for="image">{{ form.image.label }}</label>
+                  {{ form.image(class="form-control") }}
+               </div>
+               <div class="form-group text-center">
+                  {{ form.submit(class="btn btn-primary") }}
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

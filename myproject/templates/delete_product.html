@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-Admin-delete product</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+   <div class="row justify-content-center">
+      <div class="col-md-6">
+         <div class="jumbotron">
+            <h1 class="text-center">Delete Product</h1>
+            <form method="POST">
+               {{ form.hidden_tag() }}
+               <div class="form-group">
+                  <label for="name">{{ form.id.label }}</label>
+                  {{ form.id(class="form-control") }}
+               </div>
+               <div class="form-group text-center">
+                  {{ form.submit(class="btn btn-primary") }}
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

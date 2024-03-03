@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-Info-{{ product.name }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+   <div class="row">
+      <div class="col-md-6">
+         <img src="{{ product.image }}" alt="{{ product.name }}" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+         <h1 class="display-4">{{ product.name }}</h1>
+         <p class="display-5">ID = {{ product.id }}</p>
+         <h2 class="display-5">Price: ₹{{ product.price }}</h2>
+         <p class="lead"><strong>Description:</strong> {{ product.description }}</p>
+         <p class="lead"><strong>Quantity:</strong> {{ product.quantity }} in stock</p>
+         <a href="{{ url_for('add_prod_cart', product_id = product.id,) }}" class="btn btn-primary btn-sm" >Add to Cart</a>
+      </div>
+   </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-about</title>
+{% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="d-flex justify-content-center mb-5">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Project Logo" class="img-fluid" style="width: 150px;">
+      </div>
+      <h1 class="text-center display-4 mb-4">shopX, a DBMS project</h1>
+      <div class="card mb-5 border-0">
+        <div class="card-body text-center">
+          <p class="card-text lead">Presented by:</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vinay KV (4NI21CS121)</li>
+            <li class="list-group-item">Vinay KN (4NI21CS122)</li>
+            <li class="list-group-item">U Dilip Sagar (4NI21CS115)</li>
+            <h4>The National Institute of Engineering, Mysuru</h4>
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-5 border-0">
+        <div class="card-body text-center">
+          <h2>Database Design</h2>
+          <img src="https://iili.io/J11eghx.md.png" alt="Database Schema Diagram" class="img-fluid rounded shadow">
+        </div>
+      </div>
+      <div class="card mb-5 border-0">
+        <div class="card-body text-center">
+          <h2>Database Residing On</h2>
+          <p>AWS RDS EC2 instance - MySQL server</p>
+        </div>
+      </div>
+      <div class="card mb-5 border-0">
+        <div class="card-body text-center">
+            <div class="card-body text-center">
+                <h2>Tech Stack</h2>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item tech-stack-item" data-logo="python">Python - Flask (Web Framework)</li>
+                  <li class="list-group-item tech-stack-item" data-logo="mysql">MySQL (Database)</li>
+                  <li class="list-group-item tech-stack-item" data-logo="aws">AWS (Relational Database service)</li>
+                  <li class="list-group-item tech-stack-item" data-logo="bootstrap">Bootstrap (UI Framework)</li>
+                </ul>
+              </div>
+        </div>
+      </div> 
+      <div class="card mb-5 border-0">
+        <div class="card-body text-center">
+          <p>Check out our project on GitHub:</p>
+          <a href="https://github.com/adventuresoul/dbms_project" "btn btn-primary">Project on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

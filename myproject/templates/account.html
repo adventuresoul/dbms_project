@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-Your_Account</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+   <div class="row">
+      <div class="col-md-8 offset-md-2">
+         <div class="card border-0 rounded-lg shadow-sm">
+            <div class="card-header bg-dark text-white">
+               <h4 class="my-0 font-weight-normal">Your Profile</h4>
+            </div>
+            <div class="card-body">
+               <div class="bg-light text-dark rounded p-3 mb-4">
+                  <h1 class="display-4">Welcome back!</h1>
+                  <div>
+                     {% if current_user.is_authenticated and customer.name == 'admin' %}
+                     <a class="btn btn-primary" href="{{ url_for('admin') }}">Admin Page</a>
+                     {% endif %}
+                  </div>
+                  <hr class="my-4">
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <h4>Account Information</h4>
+                     {% if current_user.is_authenticated %}
+                     <p><i class="fas fa-user-circle"></i> Name: {{ customer.name }}</p>
+                     <p><i class="fas fa-phone"></i> Contact: {{ customer.contact }}</p>
+                     <p><i class="fas fa-map-marker-alt"></i> Address: {{ customer.address }}</p>
+                     {% else %}
+                        <p>Please login to access account</p>
+                     {% endif %}
+                  </div>
+                  <div class="col-md-6">
+                  </div>
+               </div>
+            </div>
+            <div class="card-footer bg-light text-muted">
+               <a class="btn btn-primary" href="{{ url_for('show_history') }}">history</a>
+               <a class="btn btn-primary" href="{{ url_for('login') }}">Log In</a>
+               <a class="btn btn-outline-primary" href="{{ url_for('register') }}">Register</a>
+               <a class="btn btn-secondary float-right" href="{{ url_for('logout') }}">Log Out</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

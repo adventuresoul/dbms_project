@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-All Products</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+   <div class="jumbotron text-center bg-light shadow-sm rounded-lg">
+      <h1 class="display-4">Explore Our Products</h1>
+      <p class="lead">Discover a wide range of exciting items.</p>
+   </div>
+   <div class="row justify-content-center">
+      <div class="col-md-10">
+         <div class="row">
+            {% for item in products %}
+            <div class="col-md-4 mb-4">
+               <div class="card h-100 border-0 rounded-lg shadow-sm">
+                  <a href="{{ url_for('product_info', product_id=item.id) }}">
+                  <img src="{{ item.image }}" class="card-img-top" alt="{{ item.name }}" style="height: 200px; object-fit: cover; border-top-left-radius: .75rem; border-top-right-radius: .75rem">
+                  </a>
+                  <div class="card-body d-flex flex-column">
+                     <h5 class="card-title text-center mt-4">{{ item.name }}</h5>
+                     <p class="card-text text-center"><strong>Price:</strong> <span class="text-primary">₹{{ item.price }}</span></p>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

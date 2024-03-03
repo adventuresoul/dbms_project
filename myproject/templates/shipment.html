@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-Admin-shipment</title>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+   <div class="mb-4">
+      <h1 class="fw-bold">Orders to be shipped</h1>
+   </div>
+   {% if products %}
+   {% for x in products %}
+   <div class="card card-small mb-3">
+      <div class="row g-0">
+         <div class="col-4">
+            <a href="{{ url_for('product_info', product_id = x[2].id) }}">
+            <img src="{{ x[3] }}"  class="img-fluid rounded" style="width: 80px; height: 80px; object-fit: cover;">
+            </a>       
+         </div>
+         <div class="col-8">
+            <div class="card-body">
+               <div>
+                  <p class="card-title h6 mb-0">{{ x[0] }}</p>
+                  <p class="card-title h6 mb -0">ProductID = {{ x[1] }}</p>
+                  <p class="card-title h6 mb -0">Address = {{ x[2] }}</p>
+               </div>
+   
+            </div>
+         </div>
+         
+      </div>
+   </div>
+   {% endfor %}
+   {% else %}
+   <div class="text-center">
+      <p class="lead">No products for shipment yet!</p>
+   </div>
+   {% endif %}
+</div>
+{% endblock %}

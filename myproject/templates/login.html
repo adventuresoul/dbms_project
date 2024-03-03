@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-Login</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+   <div class="row justify-content-center">
+      <div class="col-md-6">
+         <div class="jumbotron">
+            <h1 class="text-center">Login</h1>
+            <form method="POST" class="needs-validation" novalidate>
+               {# This hidden_tag is a CSRF security feature. #}
+               {{ form.hidden_tag() }}
+               <div class="form-group">
+                  {{ form.email.label }} {{ form.email(class="form-control", required=true) }}
+                  <div class="invalid-feedback">
+                     Please enter your email.
+                  </div>
+               </div>
+               <div class="form-group">
+                  {{ form.password.label }} {{ form.password(class="form-control", required=true) }}
+                  <div class="invalid-feedback">
+                     Please enter your password.
+                  </div>
+               </div>
+               <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Login</button>
+               </div>
+               <br>
+               <p class="text-center"><a href="{{ url_for('register') }}" >new user? signup</a></p>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

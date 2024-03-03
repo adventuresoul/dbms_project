@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-Home</title>
+{% endblock %}
+
+{% block content %}
+<div class="header">
+   <div class="container">
+      <div class="row">
+         <div class="col-2">
+            <h1>Give Your Workout <br> A New Style!</h1>
+            <p>Success isn't always about greatness. it's about consistency. consistent hard work gains success. greatness
+               will come.
+            </p>
+            <a href="{{ url_for('product_list') }}" class="btn">Explore Now &#8594</a>
+         </div>
+         <div class="col-2"><img src="{{ url_for('static', filename='image1.png') }}" height="600">
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

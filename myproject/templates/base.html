@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-5MApqy2R0z0j5CWgxf3z2J0YaCJFp6zBuj9SVlNgzNDxG7boY3eGqGqQ3njaC/Pm+gX6pKDGyQvEPTz+vJUQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      {% block title %}
+      {% endblock %}
+      <style>
+         body {
+         font-family: 'Roboto', sans-serif; /* Choose your preferred font */
+         }
+         header, footer {
+         background-color: #333;
+         color: #fff;
+         padding: 1rem;
+         }
+         .navbar-brand {
+         font-weight: bold;
+         }
+         .content {
+         background-color: #f5f5f5;
+         padding: 2rem;
+         }
+         .product-image {
+         border: 1px solid #ddd;
+         }
+         h1 {
+         font-size: 2rem;
+         font-weight: bold;
+         }
+         footer .copyright {
+         font-size: 1.2rem;
+         }
+      </style>
+   </head>
+   <body>
+      {% for message in get_flashed_messages()  %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
+         <span aria-hidden="true">&times;</span>
+         </button>
+         {{message}}
+      </div>
+      {% endfor %}
+      <header>
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="ShopX Logo" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ url_for('welcome_user') }}"><b>Home</b></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ url_for('product_list') }}"><b>Products</b></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ url_for('account') }}"><b>Profile</b></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ url_for('show_cart') }}"><b>Cart</b></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{ url_for('about') }}"><b>About</b></a>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+      <div class="content">
+         {% block content %}
+         {% endblock %}
+        
+      </div>
+      <footer class="footer py-1 bg-dark text-white fixed-bottom">
+         <div class="container d-flex justify-content-between align-items-center">
+            <span class="copyright text mb-0">shopX - DBMS Project &copy;</span>
+            <a href="https://github.com/adventuresoul/dbms_project" class="social-link text-white me-3">
+            <i>github</i>
+            </a>
+         </div>
+      </footer>
+   </body>
+</html>

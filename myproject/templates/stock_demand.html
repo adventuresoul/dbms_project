@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>shopX-Admin-Stock</title>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+   <div class="mb-4">
+      <h1 class="fw-bold">Stock analyzer</h1>
+   </div>
+   {% if products %}
+   {% for item in products %}
+   <div class="card card-small mb-3">
+      <div class="row g-0">
+         <div class="col-4">
+            <a href="{{ url_for('product_info', product_id = item.id) }}">
+            <img src="{{ item.image }}" alt="{{ item.name }}" class="img-fluid rounded" style="width: 80px; height: 80px; object-fit: cover;">
+            </a>       
+         </div>
+         <div class="col-8">
+            <div class="card-body">
+               <div>
+                  <p class="card-title h6 mb-0">{{ item.name }}</p>
+                  <p class="card-title h6 mb -0">ProductID = {{ item.id }}</p>
+                  <p class="card-title h6 mb -0">product Left = {{ item.quantity }}</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   {% endfor %}
+   {% else %}
+   <div class="text-center">
+      <p class="lead">No shortage of stocks</p>
+   </div>
+   {% endif %}
+</div>
+{% endblock %}
