@@ -192,7 +192,7 @@ def payment(total_price):
     flash("Order placed")
     items = Cart.query.filter_by(customer_id=session["user_id"])
     for i in items:
-        hist = Payment_history(session["user_id"], i.product_id, 0)
+        hist = Payment_history(session["user_id"], i.product_id)
         db.session.add(hist)
         db.session.commit()
         db.session.delete(i)
